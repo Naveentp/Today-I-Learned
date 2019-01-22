@@ -186,7 +186,7 @@ class CurrencyView @JvmOverloads constructor(
 > Sometimes you may require arguments they are not accessible until you are inside the class  
 
 Example:  
-If `jsonString` to be injected to `C`urrenciesViewModel` class
+If `jsonString` to be injected to `CurrenciesViewModel` class
 ```kotlin
 class CurrenciesViewModel constructor(
     dataRepo: DataRepository,
