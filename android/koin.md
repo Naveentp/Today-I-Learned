@@ -27,7 +27,7 @@
 
 ### Koin Dependencies 
 ```groovy
-def koinVersion = '1.0.0'
+def koinVersion = '2.0.0-beta-1'
 
 // core koin features
 implementation "org.koin:koin-android:$koinVersion" 
@@ -80,7 +80,10 @@ class BaseApplication : Application() {
     override fun onCreate(){
         super.onCreate()
         // Instantiates Koin and creates koin context
-        startKoin(this, listOf(applicationModule))
+        startKoin {
+            androidContext(this@BaseApp)
+            modules(applicationModule)
+        }
     }
 }
 ```
@@ -167,9 +170,13 @@ class CurrencyView @JvmOverloads constructor(
     SHARED_PREF_NAME=my_app_shared_pref
     ```
 
-- In `BaseApplication` set `loadProperties` to `true` like below,    
+- In `BaseApplication` set `androidFileProperties()` like below, this will pick `koin.properties` file automatically from assets.     
     ```kotlin
-    startKoin(this, listOf(applicationModule), loadProperties = true)
+    startKoin {
+            androidContext(this@BaseApp)
+            modules(appComponent)
+            androidFileProperties()
+        }
     ```
 - Now, in your activity you can call,
     ```kotlin 
@@ -229,11 +236,13 @@ class KoinLogger : Logger {
     }
 } 
 
-//Pass this class as a `logger` argument in startKoin
-startKoin(this, 
-    listOf(applicationModule), 
-    loadProperties = true, 
-    logger = KoinLogger()
-    )
+//Pass this class as a`logger` argument in startKoin
+startKoin {
+    androidContext(this@BaseApp)
+    modules(appComponent)
+    androidFileProperties()
+    // use Android logger - Level.INFO by default
+    androidLogger(log = KoinLogger())
+    }
 ```
 
