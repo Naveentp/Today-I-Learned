@@ -5,7 +5,7 @@
 ### Steps to install & run our apps in foldable emulator
 ---
 #### Installing Emulator app in Devices
-1. Download [Foldable Emulator apk](https://developer.samsung.com/common/download/check.do?actId=1253) offered by Samsung.
+1. Download Foldable Emulator apk offered by Samsung. APK can be found in this [link](https://developer.samsung.com/galaxy/foldable/test)
 
 2. Install the app using command prompt like
     ```
