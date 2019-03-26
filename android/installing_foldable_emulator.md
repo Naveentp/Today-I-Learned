@@ -8,12 +8,12 @@
 1. Download Foldable Emulator apk offered by Samsung. APK can be found in this [link](https://developer.samsung.com/galaxy/foldable/test)
 
 2. Install the app using command prompt like
-    ```
+    ```bash
     $ adb install FoldableEmulator.apk
     ```
 3. Once the app installed, Open the "Foldable Emulator" app from apps list.
 4. Run these commands to grant permissions
-    ```
+    ```bash
     -> ~ adb shell
     lux_uds:/ $ pm grant com.samsung.android.foldable.emulator android.permission.WRITE_SECURE_SETTINGS
     lux_uds:/ $ pm grant com.samsung.android.foldable.emulator android.permission.SYSTEM_ALERT_WINDOW
